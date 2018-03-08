@@ -1,4 +1,4 @@
-var buttonArray = [];
+var buttonArray = ["dog", "cat"];
 
 
 function displayGiphy() {
@@ -25,22 +25,43 @@ function displayGiphy() {
 
 
         for (i = 0; i < 10; i++){
-        var gifImage = JSON.stringify(response.data[i].images.downsized.url);
-        console.log(gifImage);
+        //var gifActive = JSON.stringify(response.data[i].images.downsized.url);
+        //console.log(gifActive);
+        var gifRating = response.data[i].rating;
+        //var gifStill = JSON.stringify(response.data[i].images.downsized_still.url)
+
         var gifRating = JSON.stringify(response.data[i].rating);
-        console.log(gifRating);
 
-        newDiv.append('<img src=' + gifImage + '> Rating:' + gifRating + '<br>');
+        var giphyImg = $('<img>');
+        giphyImg.attr("src", response.data[i].images.downsized_still.url);
+        giphyImg.attr("data-still", response.data[i].images.downsized_still.url);
+        giphyImg.attr("data-animate", response.data[i].images.downsized.url );
+        giphyImg.attr("data-stage", "still");
+        giphyImg.addClass("image");
+        newDiv.append(giphyImg);
+        newDiv.append("<br>Rating: " + gifRating + "<p>");
+
+        $("#choices").prepend(newDiv);
+
+
+
+
+        //newDiv.append('<img src=' + gifStill + '>' );
         // MAKE A TABLE for gifs and for ratings etc
-        console.log("image: " + response.data[i].images.downsized.url);
-        };
+        console.log("image active: " + response.data[i].images.downsized.url);
+        console.log("image still: " + response.data[i].images.downsized_still.url);
+    
+    };
 
 
+
+    
         //var webtext = JSON.stringify(response);
         //newDiv.append(webtext); 
-    }
-    )
-}
+    });
+
+};
+
 
 function displayButtons() {
     $("#buttonChoices").empty();
@@ -74,3 +95,20 @@ displayButtons();
 $(document).on("click", ".displayGif", displayGiphy);
 
 displayButtons();
+
+//event listener
+$(document).on("click", ".image", function(){
+
+    var state = $(this).attr("data-state");
+
+    if ( state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }
+    else {
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+
+
+}); 
