@@ -1,7 +1,56 @@
-#choices {
-    float: left;
+body {
+    display: block;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background-image: url("../images/gplaypattern.png");
+    background-position: fixed;
+    background-repeat: repeat;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+
+}
+.banner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #buttonChoices {
-    float: ;
+    margin-top: 2%;
+}
+
+button, #addButton {
+    margin: 3px;
+    background-color: #262626;
+    color: white;
+    border: 1px #000 solid;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+button:hover , #addButton:hover {
+    color: #262626;
+    background-color: white;
+}
+
+#buttonForm {
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
+.image {
+    float: left;
+}
+
+.addedDiv {
+    float: left;;
+} */
+
+#choices {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-var buttonArray = ["dog", "cat"];
+var buttonArray = ["The Office", "Parks and Recreation", "How I Met Your Mother", "Friends", "3rd Rock from the Sun", "The Big Bang Theory", "Community", "New Girl", "Scrubs", "That 70s Show",   ];
 
 
 function displayGiphy() {
